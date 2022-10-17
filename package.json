@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx webpack",
     "start": "webpack-dev-server",
-    "git:commit:dev": "git add * &&  git commit -m 'quick commit' && git push -u origin dev"
+    "build:docs": "npx jsdoc -c jsdocs.config.json"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jsdocs": "^1.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "node-sass": "^7.0.3",
     "sass-loader": "^13.1.0",
