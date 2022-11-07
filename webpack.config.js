@@ -3,7 +3,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BabelLoader = require('babel-loader');
 
 module.exports = {
-  mode: 'development',
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'build'),
+  },
+  mode: 'production',
   module: {
     rules: [
       // babel js parsing

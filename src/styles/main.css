@@ -14,4 +14,9 @@
   transform: translate(-50%, -50%);
   background: #4d79bc;
   max-width: 100%;
+  font-family: 'Bangers', cursive;
+}
+
+.layer {
+  display: none;
 }
