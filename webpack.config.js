@@ -1,16 +1,28 @@
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BabelLoader = require('babel-loader');
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, './build'),
+  },
   mode: 'development',
   module: {
     rules: [
       // babel js parsing
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
         use: ['babel-loader'],
+        exclude: /node_modules/,
+      },
+      // ts parsing
+      {
+        test: /\.(ts|tsx)$/,
+        use: ['ts-loader'],
+        exclude: /node_modules/,
       },
       // html parsing
       {
@@ -36,6 +48,9 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js, .jsx'],
   },
   plugins: [
     new HtmlWebPackPlugin({
